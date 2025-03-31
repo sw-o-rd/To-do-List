@@ -1,0 +1,340 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: lightblue;
+    padding: 10px;
+}
+
+.todo-app{
+width: 100%;
+max-width: 540px;
+background: rgb(221, 198, 198);
+margin: 100px auto 20px;
+padding: 40px 30px 70px;
+border-radius: 10px;
+}
+
+
+
+.todo-img{
+    width: 20px;
+    margin-left: 10px;
+}
+
+.todo-app h2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.adder{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(247, 244, 244, 0.863);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.add-bar{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+}
+
+.button-add-bar{
+    outline: none;
+    border: none;
+    padding: 16px 50px;
+    background-color: firebrick;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+#task-container li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+
+}
+
+#task-container li::before{
+    content: "";
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(uncheckw.svg);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+
+#task-container li.checked{
+    color: #555;
+    text-decoration: line-through;
+    
+}
+
+#task-container li.checked::before{
+background-image: url(checkw.svg);
+}
+
+#task-container li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: red;
+    line-height: 40px;
+    text-align: center;
+    transition: background 1s;
+    background: none;
+    border-radius: 30px;
+}
+
+#task-container li span:hover{
+    background-color: red;
+    color: white;
+    border-radius:30px;
+}
+
+#task-container li button{
+    top: 5;
+    right: 50px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    color: red;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.ventana{
+    max-width: 300px;
+    right: 0;
+    left: 0;
+    background-color:rgb(221, 198, 198);
+    color: black;
+    position: absolute;
+    border-radius: 10px;
+    margin: auto;
+    z-index: 10;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+}
+
+
+
+.ventana::before{
+ content: "Introduzca el nuevo valor";
+ padding-bottom: 10px;
+
+}
+
+.edit-input{
+    background-color: rgba(215, 220, 224, 0.37);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.edit-button{
+    margin-top: 10px;
+}
+
+.edit{
+    background: none;
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    background-image: url(edit-boton.svg);
+    background-size: contain;
+    transition: background 1s;
+    
+}
+
+
+.edit:hover{
+    background-color: gray;
+}
+
+.dark-button{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url(luna.svg);
+    background-position: center;
+    border: none;
+    border-radius: 10px;
+}
+
+.clear-button{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url(sol.svg);
+    background-position: center;
+    border: none;
+    border-radius: 10px;
+}
+
+.dark-button:hover{
+    background-color: #555;
+}
+
+
+/*dark-mode*/
+.todo-appd{
+    width: 100%;
+    max-width: 540px;
+    background: rgb(54, 48, 48);
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+    color: white;
+    }
+
+    .containerd{
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgb(20, 51, 61);
+        padding: 10px;
+    }
+
+    .adderd{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(247, 244, 244, 0.863);
+        border-radius: 30px;
+        padding-left: 20px;
+        margin-bottom: 25px;
+    }
+
+    .button-add-bard{
+        outline: none;
+        border: none;
+        padding: 16px 50px;
+        background-color: rgb(39, 34, 34);
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 40px;
+    }
+
+    .ventanad{
+        width: 300px;
+        margin: auto;
+        background-color:rgb(54, 48, 48);
+        color:white;
+        position: absolute;
+        border-radius: 10px;
+        margin: auto;
+        z-index: 10;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        flex-flow: column;
+        align-items: center;
+}
+
+/*usuario options*/
+
+.user-ventana{
+    max-width: 300px;
+    right: 0;
+    left: 0;
+    background-color:white;
+    color: black;
+    position: absolute;
+    border-radius: 10px;
+    margin: auto;
+    z-index: 10;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+}
+
+.user-ventanad{
+    max-width: 300px;
+    margin: auto;
+    background-color:rgb(54, 48, 48);
+    color: white;
+    position: absolute;
+    border-radius: 10px;
+    margin: auto;
+    z-index: 10;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+}
+
+
+
+.user-input{
+    background-color: rgba(215, 220, 224, 0.37);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+
+
+.user-button{
+    margin-top: 10px;
+}
+
+.user-ventana::before{
+content: "introduce tu nombre";
+padding-bottom: 10px;
+}
+
+.user-ventanad::before{
+    content: "introduce tu nombre";
+    padding-bottom: 10px;
+    }
+
+.ayuda{
+    left: 10px;
+}
