@@ -5,6 +5,8 @@
     box-sizing: border-box;
 }
 
+
+
 .container{
     width: 100%;
     min-height: 100vh;
@@ -15,7 +17,7 @@
 .todo-app{
 width: 100%;
 max-width: 540px;
-background: rgb(221, 198, 198);
+background: rgb(255, 255, 255);
 margin: 100px auto 20px;
 padding: 40px 30px 70px;
 border-radius: 10px;
@@ -51,6 +53,7 @@ border-radius: 10px;
     outline: none;
     background: transparent;
     padding: 10px;
+    min-width: 0px;
 }
 
 .button-add-bar{
@@ -62,6 +65,7 @@ border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+    min-width: 0px;
 }
 
 #task-container li{
@@ -71,10 +75,32 @@ border-radius: 10px;
     user-select: none;
     cursor: pointer;
     position: relative;
-
 }
 
-#task-container li::before{
+
+#task-container .tarea{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+#task-container .tarea::before{
+    content: "";
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(uncheck.svg);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+#task-container .taread::before{
     content: "";
     position: absolute;
     height: 28px;
@@ -88,15 +114,26 @@ border-radius: 10px;
 }
 
 
-#task-container li.checked{
+
+#task-container .tarea.checked{
     color: #555;
     text-decoration: line-through;
     
 }
 
-#task-container li.checked::before{
-background-image: url(checkw.svg);
+#task-container .taread.checked{
+    color: white;
+    text-decoration: line-through;
+    
 }
+
+#task-container .tarea.checked::before{
+background-image: url(check.svg);
+}
+
+#task-container .taread.checked::before{
+    background-image: url(checkw.svg);
+    }
 
 #task-container li span{
     position: absolute;
@@ -136,7 +173,7 @@ background-image: url(checkw.svg);
     max-width: 300px;
     right: 0;
     left: 0;
-    background-color:rgb(221, 198, 198);
+    background-color:rgb(241, 241, 241);
     color: black;
     position: absolute;
     border-radius: 10px;
@@ -148,7 +185,6 @@ background-image: url(checkw.svg);
     flex-flow: column;
     align-items: center;
 }
-
 
 
 .ventana::before{
@@ -291,6 +327,7 @@ background-image: url(checkw.svg);
     justify-content: center;
     flex-flow: column;
     align-items: center;
+    z-index: 99;
 }
 
 .user-ventanad{
@@ -298,7 +335,7 @@ background-image: url(checkw.svg);
     margin: auto;
     background-color:rgb(54, 48, 48);
     color: white;
-    position: absolute;
+    position: fixed;
     border-radius: 10px;
     margin: auto;
     z-index: 10;
@@ -307,6 +344,9 @@ background-image: url(checkw.svg);
     justify-content: center;
     flex-flow: column;
     align-items: center;
+    right: 0;
+    left: 0;
+    z-index: 99;
 }
 
 
@@ -335,6 +375,11 @@ padding-bottom: 10px;
     padding-bottom: 10px;
     }
 
-.ayuda{
-    left: 10px;
+.bloqueador{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.459);
+    position: absolute;
+    z-index: 0;
+    top: 0;
 }

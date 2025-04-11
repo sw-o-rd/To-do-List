@@ -6,7 +6,9 @@ const dark = document.querySelector(".dark-button");
 const etiqueta = document.getElementsByTagName("LI");
 const usuario = document.getElementById("usuario");
 const image = document.querySelector(".todo-img");
-
+const body = document.getElementsByTagName("body");
+const bloqueo = document.querySelector(".bloqueador");
+const listas = document.getElementsByTagName("LI");
 
 
 
@@ -15,20 +17,21 @@ dark.addEventListener("click", e => {
     cuerpo.classList.toggle("todo-appd");
     document.querySelector(".container").classList.toggle("containerd");
     document.querySelector(".button-add-bar").classList.toggle("button-add-bard");
-    if (dark.classList.contains("clear-button")) {
-        document.querySelector(".user-ventana").classList.toggle("user-ventanad");
+    
+    if (listas.classList.contains("tarea")) {
+        document.getElementsByTagName("LI").classList.toggle("taread");
     }
-    else if (dark.classList.contains("dark-button")) 
-    {
-        document.querySelector(".user-ventana").classList.toggle("user-ventanad");
-    };
 
+    document.querySelector(".user-ventana").classList.toggle("user-ventanad");
+    document.querySelector(".user-ventanad").classList.add("user-ventana");
+    document.querySelector(".ventana").classList.toggle(".ventanad")
 })
 
 window.onload = function (){
+    // bloqueador
     //contenedor-usuario
     let uedit = document.createElement("DIV");
-    uedit.classList.add("user-ventana")
+    uedit.classList.add("user-ventana");
     //compo de texto edicion-usuario
     let uinput = document.createElement("INPUT");
     uinput.setAttribute("type","text")
@@ -44,6 +47,8 @@ window.onload = function (){
     uedit.appendChild(ubutton);
     ubutton.addEventListener("click" , e => {
     if (uinput.value === "") {
+        usuario.innerHTML = "To-Do List"
+        salvado()
         e.target.parentElement.remove();
     }
     else{
@@ -52,13 +57,22 @@ window.onload = function (){
     e.target.parentElement.remove();
     
     }
+    bloqueo.setAttribute("hidden", "")
     })
 }
 
 usuario.addEventListener("click", e =>{
+    //bloquo
+    bloqueo.removeAttribute("hidden", "")
     //contenedor-usuario
     let uedit = document.createElement("DIV");
-    uedit.classList.add("user-ventana")
+    if (dark.classList.contains("clear-button")) {
+        uedit.classList.add("user-ventanad")
+    }
+    else if (dark.classList.contains("dark-button")) {
+        uedit.classList.add("user-ventana")
+    }
+    /*uedit.classList.add("user-ventana")*/
     //compo de texto edicion-usuario
     let uinput = document.createElement("INPUT");
     uinput.setAttribute("type","text")
@@ -73,7 +87,7 @@ usuario.addEventListener("click", e =>{
     cuerpo.appendChild(uedit);
     uedit.appendChild(ubutton);
     ubutton.addEventListener("click" , e => {
-    if (uinput.value === "") {
+    if (uinput.value === '') {
         e.target.parentElement.remove();
     }
     else{
@@ -82,7 +96,9 @@ usuario.addEventListener("click", e =>{
     e.target.parentElement.remove();
     
     }
+    bloqueo.setAttribute("hidden", "")
     })
+
 })
 
 
@@ -91,7 +107,9 @@ function addTask(){
         alert("pon algo subnormal")
     }
     else{
+        bloqueo.setAttribute("hidden", "")
         let li = document.createElement("LI");
+        li.classList.add("tarea");
         li.innerHTML = inputBox.value;
         taskContainer.appendChild(li);
         let span = document.createElement("SPAN");
@@ -117,6 +135,8 @@ taskContainer.addEventListener("click", function (e) {
         salvado()
     }
     else if (e.target.tagName == "BUTTON") {
+        //bloqueador
+        bloqueo.removeAttribute("hidden", "")
         //contenedor
         let edit = document.createElement("DIV");
         edit.classList.add("ventana")
@@ -140,10 +160,9 @@ taskContainer.addEventListener("click", function (e) {
         //eventos
         ebutton.addEventListener("click", e => {
             if (entrada.value === "") {
-                
                 e.target.parentElement.remove();
+                bloqueo.setAttribute("hidden", "") 
                 recarga()
-                
             }
             else{
                 e.target.parentElement.remove();
@@ -160,11 +179,13 @@ taskContainer.addEventListener("click", function (e) {
                 li.appendChild(edit);
                 salvado()
                 //codigo de prueba
-                
+                bloqueo.setAttribute("hidden", "") 
             }
             
-        })
-        e.target.parentElement.remove();  
+        }
+    )
+        
+        e.target.parentElement.remove();
     }
 },false);
 
